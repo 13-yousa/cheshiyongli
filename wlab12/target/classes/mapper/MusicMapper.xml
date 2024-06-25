@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.seig.mapper.MusicMapper">
+    <select id="findAllMusics" resultType="Music">
+        select * from tb_music
+    </select>
+
+    <insert id="addMusic" parameterType="Music">
+        insert into tb_music(musicname,ranking,singer) values(#{musicname},#{ranking},#{singer})
+    </insert>
+
+    <select id="findMusicById" parameterType="int" resultType="Music">
+        select * from tb_music where id=#{id}
+    </select>
+
+    <update id="updateMusic" parameterType="Music">
+        update tb_Music set musicname=#{musicname},ranking=#{ranking},singer=#{singer} where id=#{id}
+    </update>
+
+    <delete id="deleteMusicById" parameterType="int">
+        delete from tb_music where id=#{id}
+    </delete>
+</mapper>
